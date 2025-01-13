@@ -3,8 +3,7 @@
 """
 
 import customtkinter as ctk
-from ..tools import read_json
-
+from ..tools import read_json, create_media_folder
 
 class App(ctk.CTk):
     """
@@ -16,6 +15,7 @@ class App(ctk.CTk):
             Це конструктор класу, за допомогою якого задаються 
             налаштування основного вікна програми
         """
+        create_media_folder()
         
         self.SETTINGS = read_json("config.json")
         
