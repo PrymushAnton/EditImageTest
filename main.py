@@ -1,4 +1,11 @@
+"""
+    Цей модуль використовується для запуску додатку
+"""
 import modules
 
 
-modules.app.mainloop()
+if __name__ == '__main__':
+    modules.app.mainloop()
+    
+    
+    
