@@ -1,30 +1,33 @@
 """
-    Цей файл використовується для того, щоб отримати дані з файлу json
+    Цей файл використовується для читання json файлу
 """
-
+# Імпортуємо модулі
 import json
-from os.path import abspath, join
+import os
 import colorama
 colorama.init(autoreset=True)
 
 RED = colorama.Fore.RED
 YELLOW = colorama.Fore.YELLOW
 
+
+# створюємо функцію
+# name_json: str - це підказка для розробників, що параметр name_json приймає значення типу str
+# -> dict - це підказка для розробників, що функція повертає словник
 def read_json(name_json: str) -> dict:
     """
-        Ця функція використовується для отримання даних з файлу json
+        Ця функція використовується для отримання даних з json файлу
     """
-    
+
     try:
-        path_to_json = abspath(join(__file__, "..", '..', '..', 'static', 'jsons', name_json))
-        print(path_to_json)
+        path_to_json = os.path.abspath(os.path.join(__file__, "..", "..", "..", "static", "jsons", name_json))
         with open(path_to_json, "r") as file:
-            dict_json = json.load(file)
-            return dict_json
-        
+            dict1 = json.load(file)
+            return dict1
     except Exception as exception:
-        print(f"{RED}Не існує файлу {YELLOW}{name_json}")
+        print(f"{RED}Сталася помилка: {YELLOW}{exception}")
         return {}
+
 
 
 
